@@ -8,6 +8,9 @@ import DeleteUser from "./APIs/DeleteUser.mjs";
 import GetUsers from "./APIs/GetUsers.mjs";
 import GetAdminData from "./APIs/GetAdminData.mjs";
 import GetUser from "./APIs/GetUser.mjs";
+import AddDriverRate from "./APIs/AddDriverRate.mjs";
+import GetClientPoints from "./APIs/GetClientPoints.mjs";
+import GetDriverRates from "./APIs/GetDriverRates.mjs";
 
 AddRide();
 GetRides();
@@ -19,4 +22,7 @@ DeleteUser();
 GetUsers();
 GetAdminData();
 GetUser();
+AddDriverRate();
+GetDriverRates();
+GetClientPoints();
 

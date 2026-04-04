@@ -44,24 +44,10 @@ export default function UpdateUser() {
                 }
             }
 
-            // Sync account_type and is_admin
-            if (updateFields.account_type !== undefined) {
-                // If account_type is 2, ensure is_admin is true
-                if (updateFields.account_type === 2) {
-                    updateFields.is_admin = true;
-                } else if (updateFields.account_type !== 2 && updateFields.is_admin === true) {
-                    // If account_type is not 2 but is_admin is true, set account_type to 2
-                    updateFields.account_type = 2;
-                }
-            } else if (updateFields.is_admin !== undefined) {
-                // If is_admin is set but account_type is not, sync them
-                if (updateFields.is_admin === true) {
-                    updateFields.account_type = 2;
-                } else if (updateFields.account_type === 2) {
-                    // If is_admin is false but account_type is 2, set account_type to 0
-                    updateFields.account_type = 0;
-                }
-            }
+            // account_type and is_admin are independent fields:
+            // account_type: 0 = customer, 1 = driver
+            // is_admin: true/false, orthogonal to account_type
+            // No cross-sync — save them as-is.
 
             // Set updatedAt timestamp
             updateFields.updatedAt = new Date().toISOString();
