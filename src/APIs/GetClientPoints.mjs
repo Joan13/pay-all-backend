@@ -12,6 +12,13 @@ export default function GetClientPoints() {
         try {
             const points = await ClientPointsModel
                 .find({ user_id })
+                .populate({
+                    path: 'ride_id',
+                    populate: {
+                        path: 'driver_id',
+                        select: 'names user_name'
+                    }
+                })
                 .sort({ createdAt: -1 });
 
             const total = points.reduce((sum, p) => sum + (p.points || 0), 0);

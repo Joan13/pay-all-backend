@@ -10,7 +10,8 @@ import GetAdminData from "./APIs/GetAdminData.mjs";
 import GetUser from "./APIs/GetUser.mjs";
 import AddDriverRate from "./APIs/AddDriverRate.mjs";
 import GetClientPoints from "./APIs/GetClientPoints.mjs";
-import GetDriverRates from "./APIs/GetDriverRates.mjs";
+import GetRatings from "./APIs/GetRatings.mjs";
+import SigninPhone from "./APIs/SigninPhone.mjs";
 
 AddRide();
 GetRides();
@@ -23,6 +24,7 @@ GetUsers();
 GetAdminData();
 GetUser();
 AddDriverRate();
-GetDriverRates();
+GetRatings();
 GetClientPoints();
+SigninPhone();
 

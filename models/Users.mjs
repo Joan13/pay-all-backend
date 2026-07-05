@@ -10,7 +10,8 @@ const UserSchema = mongoose.Schema(
         state: { type: String },
         address: { type: String },
         phone_numbers: { type: [String], default: [] },
-        user_email: { type: String },
+        user_email: { type: String, required: true, unique: true },
+        apple_id: { type: String, unique: true }, // Optional Apple ID for Sign in with Apple
         user_password: { type: String },
         profile_picture: { type: String },
         account_type: { type: Number },
