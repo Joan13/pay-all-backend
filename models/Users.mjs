@@ -19,7 +19,8 @@ const UserSchema = mongoose.Schema(
         // Car information (for drivers)
         car_model: { type: String },
         car_condition: { type: Number }, // 0 = excellent, 1 = good/fair, 2 = poor/scrap
-        license_plate: { type: String }
+        license_plate: { type: String },
+        notification_token: { type: String }
     },
     {
         versionKey: false,

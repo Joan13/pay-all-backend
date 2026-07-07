@@ -40,7 +40,7 @@ export default function AddRide() {
                 ride_payment_date: ride.ride_payment_date || null,
                 ride_payment_amount: ride.ride_payment_amount || 0,
                 ride_payment_currency: ride.ride_payment_currency !== undefined ? ride.ride_payment_currency : 0,
-                client_accepted: 1, // User accepts by default on creation
+                client_accepted: 0, // User must accept driver's terms/price after driver accepts
                 driver_accepted: 0,
                 driver_is_there: 0,
                 start_otp: Math.floor(1000 + Math.random() * 9000).toString(),
