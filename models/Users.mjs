@@ -11,6 +11,7 @@ const UserSchema = mongoose.Schema(
         address: { type: String },
         phone_numbers: { type: [String], default: [] },
         user_email: { type: String, required: true, unique: true },
+        user_emails: { type: [String], default: [] },
         apple_id: { type: String, unique: true }, // Optional Apple ID for Sign in with Apple
         user_password: { type: String },
         profile_picture: { type: String },
@@ -20,7 +21,11 @@ const UserSchema = mongoose.Schema(
         car_model: { type: String },
         car_condition: { type: Number }, // 0 = excellent, 1 = good/fair, 2 = poor/scrap
         license_plate: { type: String },
-        notification_token: { type: String }
+        car_number: { type: String },
+        insurance_details: { type: String },
+        insurance_number: { type: String },
+        notification_token: { type: String },
+        ask_become_driver: { type: Boolean, default: false },
     },
     {
         versionKey: false,

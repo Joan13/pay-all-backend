@@ -18,6 +18,10 @@ function getKey(header, callback) {
 
 function verifyAppleToken(token) {
     return new Promise((resolve, reject) => {
+        // Decode token to log the audience if verification fails
+        const decodedToken = jwt.decode(token);
+        const tokenAudience = decodedToken ? decodedToken.aud : null;
+
         jwt.verify(
             token,
             getKey,
@@ -25,11 +29,18 @@ function verifyAppleToken(token) {
                 algorithms: ["RS256"],
                 issuer: "https://appleid.apple.com",
 
-                // Ton Service ID Apple
-                audience: "com.payallapp.servicesid",
+                // Accept both iOS App Bundle ID and web/services client ID
+                audience: [
+                    "com.payallapp.servicesid",
+                    "com.yambi.app",
+                    "com.payallapp"
+                ],
             },
             (err, decoded) => {
-                if (err) return reject(err);
+                if (err) {
+                    console.error("Apple JWT verification failed. Token audience was:", tokenAudience);
+                    return reject(err);
+                }
 
                 resolve(decoded);
             }
